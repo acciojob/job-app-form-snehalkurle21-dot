@@ -1,61 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Job Application Form</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Job Application Form</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="container">
+    <h2>Job Application Form</h2>
 
-    <div class="container">
-        <h2>Job Application Form</h2>
+    <!-- form must use POST -->
+    <form method="post" id="jobForm" action="#">
 
-        <form method="post">
+      <!-- Name (required) -->
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" required />
 
-            <!-- Name -->
-            <label for="name">Name *</label>
-            <input type="text" id="name" required>
+      <!-- Email (required) -->
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required />
 
-            <!-- Email -->
-            <label for="email">Email *</label>
-            <input type="email" id="email" required>
+      <!-- Gender (radio group — required, name="gender") -->
+      <fieldset class="radio-group">
+        <legend>Gender *</legend>
 
-            <!-- Gender -->
-            <label>Gender *</label>
-            <div class="gender-box">
-                <label><input type="radio" name="gender" value="Male" required> Male</label>
-                <label><input type="radio" name="gender" value="Female" required> Female</label>
-                <label><input type="radio" name="gender" value="Other" required> Other</label>
-            </div>
+        <input type="radio" id="gender_male" name="gender" value="Male" required />
+        <label for="gender_male">Male</label>
 
-            <!-- Laptop Brands -->
-            <label for="laptop">Preferred Laptop Brand</label>
-            <select id="laptop">
-                <option value="Apple">Apple</option>
-                <option value="Asus">Asus</option>
-                <option value="HP">HP</option>
-            </select>
+        <input type="radio" id="gender_female" name="gender" value="Female" />
+        <label for="gender_female">Female</label>
 
-            <!-- Age -->
-            <label for="age">Age *</label>
-            <input type="number" id="age" required>
+        <input type="radio" id="gender_other" name="gender" value="Other" />
+        <label for="gender_other">Other</label>
+      </fieldset>
 
-            <!-- Date of Birth -->
-            <label for="dob">Date of Birth *</label>
-            <input type="date" id="dob" required>
+      <!-- Laptop Brands (dropdown) -->
+      <label for="laptop">Preferred Laptop Brand</label>
+      <select id="laptop" name="laptop">
+        <option value="Apple">Apple</option>
+        <option value="Asus">Asus</option>
+        <option value="HP">HP</option>
+      </select>
 
-            <!-- Password -->
-            <label for="password">Password *</label>
-            <input type="password" id="password" required>
+      <!-- Age (required) -->
+      <label for="age">Age *</label>
+      <input type="number" id="age" name="age" required min="0" />
 
-            <!-- Portfolio -->
-            <label for="portfolio">Portfolio URL</label>
-            <input type="url" id="portfolio">
+      <!-- Date of Birth (required) -->
+      <label for="dob">Date of Birth *</label>
+      <input type="date" id="dob" name="dob" required />
 
-            <!-- Submit -->
-            <button type="submit">Submit</button>
+      <!-- Password (required) -->
+      <label for="password">Password *</label>
+      <input type="password" id="password" name="password" required />
 
-        </form>
-    </div>
+      <!-- Portfolio URL -->
+      <label for="portfolio">Portfolio URL</label>
+      <input type="url" id="portfolio" name="portfolio" />
 
+      <!-- Submit button (give it id 'submit' to be safe) -->
+      <div class="actions">
+        <button type="submit" id="submit" name="submit">Submit</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
